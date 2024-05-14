@@ -1,13 +1,14 @@
 
 import * as React from 'react';
-import Layout from './layout';
 import MyAppBar from '@/components/appbar';
+import List from '@/components/list-down';
 
 export default function Home() {
   return (
     <div>
       <MyAppBar />
-      <h1>hi</h1>
+      <h1>Pokemon List</h1>
+      <List/>
     </div>
   );
 }
