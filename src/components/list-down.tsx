@@ -1,14 +1,14 @@
+//@ts-nocheck
 "use client"
-// components/List.js
+
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CircularProgress, Typography } from '@mui/material';
-import Head from 'next/head';
 
 const List = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(9); // 3 pokemons per row, 3 rows per page
+  const [itemsPerPage] = useState(9); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,12 +30,10 @@ const List = () => {
     fetchData();
   }, [currentPage, itemsPerPage]);
 
-  // Function to get the dominant type of a Pokemon
   const getDominantType = (types) => {
     return types[0].type.name;
   };
 
-  // Function to get color based on Pokemon type
   const getTypeColor = (type) => {
     const typeColors = {
       normal: '#A8A77A',
@@ -60,7 +58,6 @@ const List = () => {
     return typeColors[type] || '#FFFFFF';
   };
 
-  // Function to handle scroll event
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight - 20) {
@@ -68,7 +65,6 @@ const List = () => {
     }
   };
 
-  // Attach scroll event listener
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -78,9 +74,6 @@ const List = () => {
 
   return (
     <div>
-      <Head>
-        <title>Pokémon List</title>
-      </Head>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {loading ? (
           <CircularProgress />

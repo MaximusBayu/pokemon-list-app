@@ -28,8 +28,6 @@ const useColorMode = () => {
 export const CustomThemeProvider: React.FC<CustomThemeProviderProps> = ({ children }) => {
   const { mode, toggleColorMode } = useColorMode();
 
-  console.log('CustomThemeProvider render:', mode);
-
   const theme = React.useMemo(
     () =>
       createTheme({
